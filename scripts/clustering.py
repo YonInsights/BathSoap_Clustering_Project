@@ -92,4 +92,31 @@ if os.path.exists(output_file_path):
 else:
     print("File not found, please check the file path and permissions.")
 
+from sklearn.cluster import KMeans
+import pandas as pd
+
+# Assuming data_scaled is your scaled dataset
+kmeans = KMeans(n_clusters=4, random_state=42)
+cluster_labels = kmeans.fit_predict(data_scaled)
+
+# Add the cluster labels to your original data
+data_features['Cluster'] = cluster_labels
+
+# Save the clustered data
+data_features.to_csv('D:\Osiri University\ML\Final Project\BathSoap_Clustering_Project\data\DM_Sheet_clustered.csv', index=False)
+
+# Print the first few rows to confirm
+print(data_features.head())
+# Based on your decision from the Elbow method
+num_clusters = 4  
+kmeans = KMeans(n_clusters=num_clusters, random_state=42)
+clusters = kmeans.fit_predict(data_scaled)
+# Assuming data_features is my DataFrame with features
+data_clustered = data_features.copy()  
+data_clustered['Cluster'] = clusters
+
+cluster_means = data_clustered.groupby('Cluster').mean(numeric_only=True)
+print(cluster_means)
+
+
 
