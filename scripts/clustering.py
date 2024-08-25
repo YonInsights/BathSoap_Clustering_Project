@@ -46,3 +46,16 @@ if __name__ == "__main__":
     
     # Find the optimal number of clusters
     find_optimal_clusters(data_scaled)
+from sklearn.cluster import KMeans
+
+# Define the number of clusters (you need to set this)
+num_clusters = num_clusters = 4
+
+# Initialize K-Means
+kmeans = KMeans(n_clusters=num_clusters, random_state=42)
+
+# Fit the model
+kmeans.fit(data_scaled)
+
+
+
