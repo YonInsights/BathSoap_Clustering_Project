@@ -56,6 +56,40 @@ kmeans = KMeans(n_clusters=num_clusters, random_state=42)
 
 # Fit the model
 kmeans.fit(data_scaled)
+from sklearn.cluster import KMeans
 
+# Set the optimal number of clusters
+num_clusters = 4  # the number determined from the graph
+
+# Initialize K-Means
+kmeans = KMeans(n_clusters=num_clusters, random_state=42)
+
+# Fit the model to your scaled data
+kmeans.fit(data_scaled)
+
+from sklearn.cluster import KMeans
+import pandas as pd
+
+# Assuming data_scaled is your scaled dataset and data_features is the original data
+# Perform K-Means clustering with 4 clusters
+kmeans = KMeans(n_clusters=4, random_state=42)
+cluster_labels = kmeans.fit_predict(data_scaled)
+
+# Add the cluster labels to the original data
+data_features['Cluster'] = cluster_labels
+
+# Save the clustered data to a CSV file
+output_file_path = 'D:/Osiri University/ML/Final Project/BathSoap_Clustering_Project/data/DM_Sheet_clustered.csv'
+data_features.to_csv(output_file_path, index=False)
+
+# Print the first few rows to confirm
+print(data_features.head())
+
+# Confirm the file has been saved
+import os
+if os.path.exists(output_file_path):
+    print(f"File saved successfully at {output_file_path}")
+else:
+    print("File not found, please check the file path and permissions.")
 
 
