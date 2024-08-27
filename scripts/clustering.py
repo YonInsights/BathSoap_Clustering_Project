@@ -127,3 +127,25 @@ plt.show()
 cluster_summary = clusters.describe().transpose()
 print(cluster_summary)
 
+# Summarize the characteristics of each cluster
+cluster_summary = clusters.describe().transpose()
+
+# Print the cluster summary
+print("Cluster Summary:")
+print(cluster_summary)
+
+# Save the summary as a CSV file for later reference
+cluster_summary.to_csv('D:/Osiri University/ML/Final Project/BathSoap_Clustering_Project/report/Cluster_Summary.csv')
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Visualize the characteristics of each cluster
+plt.figure(figsize=(12, 8))
+sns.heatmap(cluster_summary, annot=True, cmap="coolwarm", fmt=".2f")
+plt.title("Cluster Characteristics Heatmap")
+plt.show()
+
+# Save the heatmap to the report folder
+plt.savefig('D:/Osiri University/ML/Final Project/BathSoap_Clustering_Project/report/Cluster_Characteristics_Heatmap.png')
+
