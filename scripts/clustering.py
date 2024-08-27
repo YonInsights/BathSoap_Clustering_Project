@@ -152,3 +152,6 @@ plt.tight_layout()
 plt.savefig(r"D:\Osiri University\ML\Final Project\BathSoap_Clustering_Project\reports\cluster_means.png")
 plt.show()
 
+print("Starting plot generation...")
+plt.savefig(r"D:\Osiri University\ML\Final Project\BathSoap_Clustering_Project\reports\cluster_means.png")
+print("Plot saved successfully.")
