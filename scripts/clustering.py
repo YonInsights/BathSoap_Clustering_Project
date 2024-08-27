@@ -139,8 +139,8 @@ cluster_summary.to_csv('D:/Osiri University/ML/Final Project/BathSoap_Clustering
 
 import matplotlib.pyplot as plt
 
-# Assuming 'cluster_means' is DataFrame containing the mean values for each cluster.
-plt.figure(figsize=(10, 6))
+# Plotting the cluster means
+plt.figure(figsize=(12, 8))
 cluster_means.T.plot(kind='bar')
 plt.title('Cluster Means of Features')
 plt.xlabel('Features')
@@ -148,8 +148,7 @@ plt.ylabel('Mean Values')
 plt.legend(title='Cluster')
 plt.tight_layout()
 
-# Save the plot to the report folder
+# Save the plot to the reports folder
 plt.savefig(r"D:\Osiri University\ML\Final Project\BathSoap_Clustering_Project\reports\cluster_means.png")
 plt.show()
-
 
