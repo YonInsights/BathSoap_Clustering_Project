@@ -138,14 +138,18 @@ print(cluster_summary)
 cluster_summary.to_csv('D:/Osiri University/ML/Final Project/BathSoap_Clustering_Project/reports/Cluster_Summary.csv')
 
 import matplotlib.pyplot as plt
-import seaborn as sns
 
-# Visualize the characteristics of each cluster
-plt.figure(figsize=(12, 8))
-sns.heatmap(cluster_summary, annot=True, cmap="coolwarm", fmt=".2f")
-plt.title("Cluster Characteristics Heatmap")
+# Assuming 'cluster_means' is DataFrame containing the mean values for each cluster.
+plt.figure(figsize=(10, 6))
+cluster_means.T.plot(kind='bar')
+plt.title('Cluster Means of Features')
+plt.xlabel('Features')
+plt.ylabel('Mean Values')
+plt.legend(title='Cluster')
+plt.tight_layout()
+
+# Save the plot to the report folder
+plt.savefig(r"D:\Osiri University\ML\Final Project\BathSoap_Clustering_Project\reports\cluster_means.png")
 plt.show()
 
-# Save the heatmap to the report folder
-plt.savefig('D:/Osiri University/ML/Final Project/BathSoap_Clustering_Project/reports/Cluster_Characteristics_Heatmap.png')
 
