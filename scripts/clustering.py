@@ -117,6 +117,13 @@ data_clustered['Cluster'] = clusters
 
 cluster_means = data_clustered.groupby('Cluster').mean(numeric_only=True)
 print(cluster_means)
-
-
+#Visualize the Clusters with a Pair Plot
+import seaborn as sns
+import matplotlib.pyplot as plt
+sns.pairplot(data_clustered, hue='Cluster', palette='Set1')
+plt.title('Pair Plot of Features by Cluster')
+plt.show()
+#Create a Summary of Cluster Characteristics
+cluster_summary = clusters.describe().transpose()
+print(cluster_summary)
 
