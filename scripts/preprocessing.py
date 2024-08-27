@@ -27,3 +27,27 @@ if __name__ == "__main__":
     data_features = load_and_preprocess_data()
     print("Selected Features for Clustering:")
     print(data_features.head())
+
+import pandas as pd
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
+
+def load_data(filepath):
+    return pd.read_csv(filepath)
+
+def preprocess_data(df):
+    scaler = StandardScaler()
+    data_scaled = scaler.fit_transform(df)
+    return data_scaled
+
+def perform_clustering(data, n_clusters):
+    kmeans = KMeans(n_clusters=n_clusters, random_state=42)
+    clusters = kmeans.fit_predict(data)
+    return clusters, kmeans
+
+# Function to save the cluster summary and means
+def save_cluster_summary(df, clusters, output_path):
+    df['Cluster'] = clusters
+    cluster_summary = df.groupby('Cluster').mean()
+    cluster_summary.to_csv(output_path)
+    return cluster_summary
